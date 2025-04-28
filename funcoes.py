@@ -83,7 +83,7 @@ def calcula_pontos_soma(faces):
             if soma/faces[i] == 5:
                 total+=50
     else:
-        for i in faces:
-            total+=i
+        for i in range(faces):
+            total+=faces[i]
 
     return total
