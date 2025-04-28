@@ -1,8 +1,8 @@
 import random
 
 def rolar_dados(n):
-    lista_d = []
+    lista_dados = []
     while len(lista_dados) != n:
         dado = random.randint(1,6)
         lista_dados.append(dado)
-    return lista_d
+    return lista_dados
