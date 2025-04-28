@@ -16,8 +16,8 @@ def guardar_dado(rolados,estoque,indice_dado):
         novo_estoque.append(estoque[i])
         i+=1
 
-    del(rolados[indice_dado])
     novo_estoque.append(rolados[indice_dado])
+    del(rolados[indice_dado])
     resposta = [rolados,novo_estoque]
     return resposta
   
