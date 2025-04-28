@@ -21,3 +21,13 @@ def guardar_dado(rolados,estoque,indice_dado):
     resposta = [rolados,novo_estoque]
     return resposta
   
+def remover_dado(rolados,estoque,num):
+    #num= número inteiro que representa o indice do dado a ser removido
+    resposta = []
+    
+    rolados.append(estoque[num])
+
+    del(estoque[num])
+
+    resposta = [rolados,estoque]
+    return resposta
