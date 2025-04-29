@@ -96,3 +96,28 @@ def calcula_pontos_sequencia_baixa(faces): #sequencia baixa
             pontos = 0
     return pontos
 
+
+def calcula_pontos_sequencia_alta(faces): #sequencia alta
+    pontos=0
+    nova=[]
+
+    for i in range (len(faces)):
+        if faces[i] not in nova:
+            nova.append(faces[i])
+
+    sequencia = sorted(nova)
+    n=1
+    if len(faces) < 5:
+        pontos = 0
+    else:
+        for i in range(len(sequencia)-1):
+            if sequencia[i] +1 == sequencia[i+1]:
+                n += 1
+            else:
+                if n < 5:
+                    n = 0
+        if n >= 4:
+            pontos = 30
+        else:
+            pontos = 0
+    return pontos
