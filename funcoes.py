@@ -139,10 +139,11 @@ def calcula_pontos_full_house(faces):
 
     return pontos
     
-    
+
 def calcula_pontos_quadra(faces):
     pontos = 0
     sequencia = sorted(faces)
+    n=1
     if len(faces) < 4:
         pontos = 0
     else:
