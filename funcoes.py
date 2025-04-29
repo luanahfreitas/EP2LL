@@ -207,7 +207,7 @@ def calcula_pontos_regra_avancada(faces):
         pontos2=0
     sequencia2 = sorted(faces)
     for i in faces:
-        soma+=i
+        soma2+=i
     if sequencia2[0]==sequencia2[1]==sequencia2[2]==sequencia2[3]==sequencia2[4]:
         pontos2=0
     elif sequencia2[0]==sequencia2[1]==sequencia2[2] and sequencia2[3]==sequencia2[4]:
@@ -250,7 +250,7 @@ def calcula_pontos_regra_avancada(faces):
             nova.append(faces[i])
 
     sequencia5 = sorted(nova)
-    n=1
+    n5=1
     if len(faces) < 5:
         pontos5 = 0
     else:
