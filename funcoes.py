@@ -75,12 +75,15 @@ def calcula_pontos_sequencia_baixa(faces): #sequencia baixa
     pontos = 0
     sequencia = sorted(faces)
     n=1
-    for i in range(len(sequencia)-1):
-        if sequencia[i] +1 == sequencia[i+1]:
-            n += 1
-    if n == 4:
-        pontos = 15
-    else:
+    if len(faces) < 4:
         pontos = 0
+    else:
+        for i in range(len(sequencia)-1):
+            if sequencia[i] +1 == sequencia[i+1]:
+                n += 1
+        if n >= 4:
+            pontos = 15
+        else:
+            pontos = 0
     return pontos
 
