@@ -88,7 +88,8 @@ def calcula_pontos_sequencia_baixa(faces): #sequencia baixa
             if sequencia[i] +1 == sequencia[i+1]:
                 n += 1
             else:
-                n=0
+                if n < 4:
+                    n = 0
         if n >= 4:
             pontos = 15
         else:
