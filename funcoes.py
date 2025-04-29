@@ -159,3 +159,23 @@ def calcula_pontos_quadra(faces):
         else:
             pontos = 0
     return pontos
+
+
+def calcula_pontos_quina(faces):
+    pontos = 0
+    sequencia = sorted(faces)
+    n=1
+    if len(faces) < 5:
+        pontos = 0
+    else:
+        for i in range(len(sequencia)-1):
+            if sequencia[i] == sequencia[i+1]:
+                n += 1
+            else:
+                if n < 5:
+                    n = 1
+        if n >= 5:
+                pontos=50
+        else:
+            pontos = 0
+    return pontos
