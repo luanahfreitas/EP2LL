@@ -152,7 +152,7 @@ def calcula_pontos_quadra(faces):
                 n += 1
             else:
                 if n < 4:
-                    n = 0
+                    n = 1
         if n >= 4:
             for j in range(len(faces)):
                 pontos+=faces[j]
