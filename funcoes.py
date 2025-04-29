@@ -73,7 +73,13 @@ def calcula_pontos_soma(faces): #sem combinacao
 
 def calcula_pontos_sequencia_baixa(faces): #sequencia baixa
     pontos = 0
-    sequencia = sorted(faces)
+    nova = []
+
+    for i in range(len(faces)):
+        if faces[i] not in nova:
+            nova.append(faces[i])
+
+    sequencia = sorted(nova)
     n=1
     if len(faces) < 4:
         pontos = 0
