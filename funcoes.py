@@ -65,8 +65,22 @@ def calcula_pontos_regra_simples(faces):
 
         
         
-def calcula_pontos_soma(faces): #sem sequencia
+def calcula_pontos_soma(faces): #sem combinacao
     soma = 0
     for i in range(len(faces)):
         soma+=faces[i]
     return soma
+
+def calcula_pontos_sequencia_baixa(faces): #sequencia baixa
+    pontos = 0
+    sequencia = sorted(faces)
+    n=1
+    for i in range(len(sequencia)-1):
+        if sequencia[i] +1 == sequencia[i+1]:
+            n += 1
+    if n == 4:
+        pontos = 15
+    else:
+        pontos = 0
+    return pontos
+
