@@ -131,11 +131,12 @@ def calcula_pontos_full_house(faces):
     sequencia=sorted(faces)
     for i in faces:
         soma+=i
-    if sequencia[0]==sequencia[1]==sequencia[2] and sequencia[3]==sequencia[4]:
+    if sequencia[0]==sequencia[1]==sequencia[2]==sequencia[3]==sequencia[4]:
+        pontos=0
+    elif sequencia[0]==sequencia[1]==sequencia[2] and sequencia[3]==sequencia[4]:
         pontos=soma
     elif sequencia[2]==sequencia[3]==sequencia[4] and sequencia[0]==sequencia[1]:
         pontos=soma
-    elif sequencia[0]==sequencia[1]==sequencia[2]==sequencia[3]==sequencia[4]:
-        pontos=0
+
     return pontos
         
