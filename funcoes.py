@@ -121,3 +121,19 @@ def calcula_pontos_sequencia_alta(faces): #sequencia alta
         else:
             pontos = 0
     return pontos
+
+def calcula_pontos_full_house(faces):
+    #len=5
+    pontos=0
+    soma=0
+    if len(faces)<5:
+        pontos=0
+    sequencia=sorted(faces)
+    for i in faces:
+        soma+=i
+    if sequencia[0]==sequencia[1]==sequencia[2] and sequencia[3]==sequencia[4]:
+        pontos=soma
+    elif sequencia[2]==sequencia[3]==sequencia[4] and sequencia[0]==sequencia[1]:
+        pontos=soma
+    return pontos
+        
