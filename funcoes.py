@@ -116,7 +116,7 @@ def calcula_pontos_sequencia_alta(faces): #sequencia alta
             else:
                 if n < 5:
                     n = 0
-        if n >= 4:
+        if n >= 5:
             pontos = 30
         else:
             pontos = 0
