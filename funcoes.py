@@ -182,111 +182,134 @@ def calcula_pontos_quina(faces):
 
 
 
-def calcula_pontos_regra_avancada(faces):
-    pontos1 = 0
-    sequencia1 = sorted(faces)
-    n1=1
-    if len(faces) < 5:
-        pontos1 = 0
-    else:
-        for i in range(len(sequencia1)-1):
-            if sequencia1[i] == sequencia1[i+1]:
-                n1 += 1
-            else:
-                if n1 < 5:
-                    n1 = 1
-        if n1 >= 5:
-                pontos1=50
-        else:
-            pontos1 = 0
+# def calcula_pontos_regra_avancada(faces):
+#     pontos1 = 0
+#     sequencia1 = sorted(faces)
+#     n1=1
+#     if len(faces) < 5:
+#         pontos1 = 0
+#     else:
+#         for i in range(len(sequencia1)-1):
+#             if sequencia1[i] == sequencia1[i+1]:
+#                 n1 += 1
+#             else:
+#                 if n1 < 5:
+#                     n1 = 1
+#         if n1 >= 5:
+#                 pontos1=50
+#         else:
+#             pontos1 = 0
 
 
-    pontos2 = 0
-    soma2 = 0
-    if len(faces) != 5:
-        pontos2=0
-    sequencia2 = sorted(faces)
-    for i in faces:
-        soma2+=i
-    if sequencia2[0]==sequencia2[1]==sequencia2[2]==sequencia2[3]==sequencia2[4]:
-        pontos2=0
-    elif sequencia2[0]==sequencia2[1]==sequencia2[2] and sequencia2[3]==sequencia2[4]:
-        pontos2=soma2
-    elif sequencia2[2]==sequencia2[3]==sequencia2[4] and sequencia2[0]==sequencia2[1]:
-        pontos2=soma2
+#     pontos2 = 0
+#     soma2 = 0
+#     if len(faces) != 5:
+#         pontos2=0
+#     sequencia2 = sorted(faces)
+#     for i in faces:
+#         soma2+=i
+#     if sequencia2[0]==sequencia2[1]==sequencia2[2]==sequencia2[3]==sequencia2[4]:
+#         pontos2=0
+#     elif sequencia2[0]==sequencia2[1]==sequencia2[2] and sequencia2[3]==sequencia2[4]:
+#         pontos2=soma2
+#     elif sequencia2[2]==sequencia2[3]==sequencia2[4] and sequencia2[0]==sequencia2[1]:
+#         pontos2=soma2
 
 
     
 
-    pontos3 = 0
-    sequencia3 = sorted(faces)
-    n3=1
-    if len(faces) < 4:
-        pontos3 = 0
-    else:
-        for i in range(len(sequencia3)-1):
-            if sequencia3[i] == sequencia3[i+1]:
-                n3 += 1
-            else:
-                if n3 < 4:
-                    n3 = 1
-        if n3 >= 4:
-            for j in range(len(faces)):
-                pontos3+=faces[j]
-        else:
-            pontos3 = 0
+#     pontos3 = 0
+#     sequencia3 = sorted(faces)
+#     n3=1
+#     if len(faces) < 4:
+#         pontos3 = 0
+#     else:
+#         for i in range(len(sequencia3)-1):
+#             if sequencia3[i] == sequencia3[i+1]:
+#                 n3 += 1
+#             else:
+#                 if n3 < 4:
+#                     n3 = 1
+#         if n3 >= 4:
+#             for j in range(len(faces)):
+#                 pontos3+=faces[j]
+#         else:
+#             pontos3 = 0
 
     
-    pontos4=0
-    for i in range(len(faces)):
-        pontos4+=faces[i]
+#     pontos4=0
+#     for i in range(len(faces)):
+#         pontos4+=faces[i]
 
     
     
-    pontos5=0
-    nova=[]
-    for i in range (len(faces)):
-        if faces[i] not in nova:
-            nova.append(faces[i])
+#     pontos5=0
+#     nova=[]
+#     for i in range (len(faces)):
+#         if faces[i] not in nova:
+#             nova.append(faces[i])
 
-    sequencia5 = sorted(nova)
-    n5=1
-    if len(faces) < 5:
-        pontos5 = 0
-    else:
-        for i in range(len(sequencia5)-1):
-            if sequencia5[i] +1 == sequencia5[i+1]:
-                n5 += 1
-            else:
-                if n5 < 5:
-                    n5 = 0
-        if n5 >= 5:
-            pontos5 = 30
-        else:
-            pontos5 = 0
+#     sequencia5 = sorted(nova)
+#     n5=1
+#     if len(faces) < 5:
+#         pontos5 = 0
+#     else:
+#         for i in range(len(sequencia5)-1):
+#             if sequencia5[i] +1 == sequencia5[i+1]:
+#                 n5 += 1
+#             else:
+#                 if n5 < 5:
+#                     n5 = 0
+#         if n5 >= 5:
+#             pontos5 = 30
+#         else:
+#             pontos5 = 0
             
 
-    pontos6 = 0
-    nova2 = []
-    for i in range(len(faces)):
-        if faces[i] not in nova2:
-            nova2.append(faces[i])
+#     pontos6 = 0
+#     nova2 = []
+#     for i in range(len(faces)):
+#         if faces[i] not in nova2:
+#             nova2.append(faces[i])
 
-    sequencia6 = sorted(nova2)
-    n6=1
-    if len(faces) < 4:
-        pontos6 = 0
-    else:
-        for i in range(len(sequencia6)-1):
-            if sequencia6[i] +1 == sequencia6[i+1]:
-                n6 += 1
-            else:
-                if n6 < 4:
-                    n6 = 0
-        if n6 >= 4:
-            pontos6 = 15
-        else:
-            pontos6 = 0
+#     sequencia6 = sorted(nova2)
+#     n6=1
+#     if len(faces) < 4:
+#         pontos6 = 0
+#     else:
+#         for i in range(len(sequencia6)-1):
+#             if sequencia6[i] +1 == sequencia6[i+1]:
+#                 n6 += 1
+#             else:
+#                 if n6 < 4:
+#                     n6 = 0
+#         if n6 >= 4:
+#             pontos6 = 15
+#         else:
+#             pontos6 = 0
+
+#     dic_pontos={
+#     'cinco_iguais': pontos1,
+#     'full_house': pontos2,
+#     'quadra': pontos3,
+#     'sem_combinacao': pontos4,
+#     'sequencia_alta': pontos5,
+#     'sequencia_baixa': pontos6
+#     }
+#     return dic_pontos
+
+    
+
+
+
+def calcula_pontos_regra_avancada(faces):
+
+    pontos4 = calcula_pontos_soma(faces)
+    pontos6 = calcula_pontos_sequencia_baixa(faces)
+    pontos5 = calcula_pontos_sequencia_alta(faces)
+    pontos2 = calcula_pontos_full_house(faces)
+    pontos3 = calcula_pontos_quadra(faces)
+    pontos1 = calcula_pontos_quina(faces)
 
     dic_pontos={
     'cinco_iguais': pontos1,
@@ -297,8 +320,3 @@ def calcula_pontos_regra_avancada(faces):
     'sequencia_baixa': pontos6
     }
     return dic_pontos
-
-    
-
-
-
