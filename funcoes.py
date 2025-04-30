@@ -201,17 +201,6 @@ def calcula_pontos_regra_avancada(faces):
     }
     return dic_pontos
 
-# def faz_jogada(faces,string,dicionario):
-#     ponto_= calcula_pontos_regra_simples(faces)
-#     pontos_=calcula_pontos_regra_avancada(faces)
-#     cartela_de_pontos= {'regra simples': {ponto_
-#                         },
-#                         'regra avançada': {pontos_
-#                         },
-#     }
-#     return cartela_de_pontos
-
-
 
 def faz_jogada(faces, categoria, cartela_de_pontos):
     #categoria=string
@@ -227,3 +216,21 @@ def faz_jogada(faces, categoria, cartela_de_pontos):
             cartela_de_pontos["regra_avancada"][categoria] = pontos[categoria]
     
     return cartela_de_pontos
+
+
+def imprime_cartela(cartela):
+    print("Cartela de Pontos:")
+    print("-"*25)    
+    for i in range(1, 7):
+        filler = " " * (15 - len(str(i)))
+        if cartela['regra_simples'][i] != -1:
+            print(f"| {i}: {filler}| {cartela['regra_simples'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    for i in cartela['regra_avancada'].keys():
+        filler = " " * (15 - len(str(i)))
+        if cartela['regra_avancada'][i] != -1:
+            print(f"| {i}: {filler}| {cartela['regra_avancada'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    print("-"*25)
