@@ -201,13 +201,29 @@ def calcula_pontos_regra_avancada(faces):
     }
     return dic_pontos
 
-def faz_jogada(faces,string,dicionario):
-    ponto_= calcula_pontos_regra_simples(faces)
-    pontos_=calcula_pontos_regra_avancada(faces)
-    cartela_de_pontos= {'regra simples': {ponto_
-                        },
-                        'regra avançada': {pontos_
-                        },
-    }
-    return cartela_de_pontos
+# def faz_jogada(faces,string,dicionario):
+#     ponto_= calcula_pontos_regra_simples(faces)
+#     pontos_=calcula_pontos_regra_avancada(faces)
+#     cartela_de_pontos= {'regra simples': {ponto_
+#                         },
+#                         'regra avançada': {pontos_
+#                         },
+#     }
+#     return cartela_de_pontos
 
+
+
+def faz_jogada(faces, categoria, cartela_de_pontos):
+    #categoria=string
+    # ver se categoria é uma chave--reg simples
+    if categoria in ['1', '2', '3', '4', '5', '6']:
+        num = int(categoria)
+        if cartela_de_pontos["regra_simples"][num] == -1:
+            pontos = calcula_pontos_regra_simples(faces)
+            cartela_de_pontos["regra_simples"][num] = pontos[num]
+    else:  
+        if cartela_de_pontos["regra_avancada"][categoria] == -1:
+            pontos = calcula_pontos_regra_avancada(faces)
+            cartela_de_pontos["regra_avancada"][categoria] = pontos[categoria]
+    
+    return cartela_de_pontos
