@@ -200,14 +200,3 @@ def calcula_pontos_regra_avancada(faces):
     'sequencia_baixa': pontos6
     }
     return dic_pontos
-
-def faz_jogada(faces,string,dicionario):
-    ponto_= calcula_pontos_regra_simples(faces)
-    pontos_=calcula_pontos_regra_avancada(faces)
-    cartela_de_pontos= {'regra simples': {ponto_
-                        },
-                        'regra avançada': {pontos_
-                        },
-    }
-    return cartela_de_pontos
-
