@@ -22,68 +22,90 @@ cartela_de_pontos = {
 }
 
 rodadas = 1
-jogo = True
+#RODADA
+while rodadas <= 12:
+    rolados = rolar_dados(5)
+    estoque = []
+    rolagens = 0
+    jogo = True
 
+    while jogo == True:
+        print(rolados)
+        print(estoque)
+        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
+        escolha = int(input())
 
-rolados = rolar_dados(5)
-estoque = []
+        if escolha == 1:
+            dado_guardar = int(input("Digite o índice do dado a ser guardado (0 a 4):"))
+            while dado_guardar < 0 or dado_guardar > 4:
+                print("Opção inválida. Tente novamente.")
+                print("Digite o índice do dado a ser guardado (0 a 4):")
+                dado_guardar = int(input())
 
-print( "Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-escolha = int(input())
+            guardar_dado(rolados,estoque,dado_guardar)
 
-#RODADA 
-while jogo == True:
-    if escolha == 1:
-        dado_guardar = int(input("Digite o índice do dado a ser guardado (0 a 4):"))
-        while  0 > dado_guardar > 4:
-            print("Opção inválida. Tente novamente.")
-            print("Digite o índice do dado a ser guardado (0 a 4):")
-            dado_guardar = int(input())
-
-        guardar_dado(rolados,estoque,dado_guardar)
-
-    elif escolha == 2:
-        print("Digite o índice do dado a ser removido (0 a 4):")
-        dado_remover = int(input())
-        while  0 > dado_remover > 4:
-            print("Opção inválida. Tente novamente.")
+        elif escolha == 2:
             print("Digite o índice do dado a ser removido (0 a 4):")
             dado_remover = int(input())
+            while dado_remover < 0 or dado_remover > 4:
+                print("Opção inválida. Tente novamente.")
+                print("Digite o índice do dado a ser removido (0 a 4):")
+                dado_remover = int(input())
 
-        remover_dado(rolados,estoque,dado_remover)
+            remover_dado(rolados,estoque,dado_remover)
 
-    elif escolha == 3:
-        rolagens = 1
-        n = len(rolados)
-        rolar_dados(n)
+        elif escolha == 3:
+            if rolagens < 2:
+                n = len(rolados)
+                rolador = rolar_dados(n)
+                rerrolagens += 1
 
-    elif escolha == 4:
-        imprime_cartela(cartela_de_pontos)
+        elif escolha == 4:
+            imprime_cartela(cartela_de_pontos)
 
-    elif escolha == 0: #faz jogada
-        print("Digite a combinação desejada:")
-        categoria = input()
-        faz_jogada(rolados, categoria, cartela_de_pontos)
-        if cartela_de_pontos[categoria] != -1:
-            print("Essa combinação já foi utilizada.")
-        elif categoria not in cartela_de_pontos:
-            print("Combinação inválida. Tente novamente.")
+        elif escolha == 0: #faz jogada
+            print("Digite a combinação desejada:")
+            categoria = input()
+            faz_jogada(rolados, categoria, cartela_de_pontos)
+            if cartela_de_pontos[categoria] != -1:
+                print("Essa combinação já foi utilizada.")
+            elif categoria not in cartela_de_pontos:
+                print("Combinação inválida. Tente novamente.")
+            
+        else:
+            print("Opção inválida. Tente novamente.")
+
+
+        print(rolados)
+        print(estoque)
         
-    else:
-        print("Opção inválida. Tente novamente.")
+        
+        for regras in cartela_de_pontos.keys():
+            for valor in regras.values():
+                if valor <= 0:
+                    jogo = True
+                else:
+                    jogo = False
+    rodadas +=1
 
+total_simples = 0
+for valor in cartela_de_pontos['regra_simples'].values():
+    if valor != -1:
+        total_simples += valor
 
-    print(rolados)
-    print(estoque)
-    
-    
-    for regras in cartela_de_pontos.keys():
-        for valor in regras.values():
-            if valor <= 0:
-                jogo = True
-            else:
-                jogo = False
+total_avancada = 0
+for valor in cartela_de_pontos['regra_avancada'].values():
+    if valor != -1:
+        total_avancada += valor
 
+if total_simples >= 63:
+    bonus = 35
+else:
+    bonus = 0
+
+total = total_simples + total_avancada + bonus
+
+print(f"Pontuação total: {total}")
     
 
     
