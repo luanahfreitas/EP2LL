@@ -75,11 +75,12 @@ while rodadas <= 12:
 
             elif categoria in ['1', '2', '3', '4', '5', '6']:
                 categoria_int = int(categoria)
-                if cartela_de_pontos['regra_simples'][categoria_int] != -1:
-                    print("Essa combinação já foi utilizada.")
-                else:
-                    faz_jogada(rolados, categoria_int, cartela_de_pontos)
-                    jogo = False
+                if categoria_int in cartela_de_pontos['regra_simples']:
+                    if cartela_de_pontos['regra_simples'][categoria_int] != -1:
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        faz_jogada(rolados, categoria_int, cartela_de_pontos)
+                        jogo = False
 
             else:
                 print("Combinação inválida. Tente novamente.")
