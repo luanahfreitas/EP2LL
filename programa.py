@@ -77,7 +77,7 @@ while jogo == True:
     print(estoque)
     
     
-    for regras in cartela_de_ponto.values():
+    for regras in cartela_de_pontos.values():
         for valor in regras.values():
             if valor <= 0:
                 jogo = True
