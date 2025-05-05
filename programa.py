@@ -58,7 +58,7 @@ while rodadas <= 12:
             if rolagens < 2:
                 n = len(rolados)
                 rolador = rolar_dados(n)
-                rerrolagens += 1
+                rolagens += 1
 
         elif escolha == 4:
             imprime_cartela(cartela_de_pontos)
