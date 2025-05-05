@@ -37,7 +37,7 @@ while rodadas <= 12:
 
         if escolha == 1:
             dado_guardar = int(input("Digite o índice do dado a ser guardado (0 a 4):"))
-            while dado_guardar < 0 or dado_guardar > 4:
+            while dado_guardar < 0 or dado_guardar >= len(rolados):
                 print("Opção inválida. Tente novamente.")
                 print("Digite o índice do dado a ser guardado (0 a 4):")
                 dado_guardar = int(input())
@@ -47,7 +47,7 @@ while rodadas <= 12:
         elif escolha == 2:
             print("Digite o índice do dado a ser removido (0 a 4):")
             dado_remover = int(input())
-            while dado_remover < 0 or dado_remover > 4:
+            while dado_remover < 0 or dado_remover >= len(estoque):
                 print("Opção inválida. Tente novamente.")
                 print("Digite o índice do dado a ser removido (0 a 4):")
                 dado_remover = int(input())
@@ -57,8 +57,10 @@ while rodadas <= 12:
         elif escolha == 3:
             if rolagens < 2:
                 n = len(rolados)
-                rolador = rolar_dados(n)
+                rolados = rolar_dados(n)
                 rolagens += 1
+            else: 
+                print("Você já usou todas as rerrolagens.")
 
         elif escolha == 4:
             imprime_cartela(cartela_de_pontos)
