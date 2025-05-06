@@ -73,29 +73,17 @@ def calcula_pontos_soma(faces): #sem combinacao
     return soma
 
 def calcula_pontos_sequencia_baixa(faces): #sequencia baixa
-    pontos = 0
-    nova = []
-
-    for i in range(len(faces)):
-        if faces[i] not in nova:
-            nova.append(faces[i])
-
-    sequencia = sorted(nova)
-    n=1
-    if len(faces) < 4:
-        pontos = 0
-    else:
-        for i in range(len(sequencia)-1):
-            if sequencia[i] +1 == sequencia[i+1]:
-                n += 1
-            else:
-                if n < 4:
-                    n = 0
-        if n >= 4:
-            pontos = 15
+    sequencia = sorted(set(faces))
+    n = 1  
+    for i in range(len(sequencia) - 1):
+        if sequencia[i] + 1 == sequencia[i + 1]: 
+            n += 1
+            if n >= 4:  
+                return 15
         else:
-            pontos = 0
-    return pontos
+            n = 1  
+
+    return 0 
 
 
 def calcula_pontos_sequencia_alta(faces): #sequencia alta

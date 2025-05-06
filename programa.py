@@ -35,12 +35,13 @@ while rodadas < 12:
         print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
 
         escolha = input()
-
+    
         if escolha.isdigit():
             escolha = int(escolha)
         else:
-            print("Opção inválida. Tente novamente.")
-            escolha = -1
+            while escolha.isdigit() == False or (escolha > 4 and 0 > escolha):
+                print("Opção inválida. Tente novamente.")
+                escolha = input()
 
 
         if escolha == 1:
@@ -86,9 +87,9 @@ while rodadas < 12:
         elif escolha == 0: #faz jogada
             dados_totais = rolados + estoque
             jogada_feita = False
-
+            print("Digite a combinação desejada:")
+    
             while jogada_feita == False:
-                print("Digite a combinação desejada:")
                 categoria = input()
 
                 if categoria == 'sem_combinacao' or categoria == 'quadra' or categoria == 'full_house' or categoria == 'sequencia_baixa' or categoria == 'sequencia_alta' or categoria == 'cinco_iguais':
@@ -113,9 +114,6 @@ while rodadas < 12:
                         print("Combinação inválida. Tente novamente.")
                 else:
                     print("Combinação inválida. Tente novamente.")
-
-        else:
-            print("Opção inválida. Tente novamente.")
 
     rodadas +=1
 
