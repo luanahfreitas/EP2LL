@@ -63,7 +63,7 @@ while rodadas < 12:
             dado_remover = input()
             if dado_remover.isdigit():
                 dado_remover_int = int(dado_remover)
-                if 0 >= dado_remover_int and dado_remover_int < len(estoque):
+                if dado_remover_int >= 0 and dado_remover_int < len(rolados):
                     rolados.append(estoque.pop(dado_remover_int))
                 else:
                         print("Opção inválida. Tente novamente.")
