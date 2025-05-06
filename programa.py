@@ -21,9 +21,9 @@ cartela_de_pontos = {
     }
 }
 
-rodadas = 1
+rodadas = 0
 #RODADA
-while rodadas <= 12:
+while rodadas < 12:
     rolados = rolar_dados(5)
     estoque = []
     rolagens = 0
@@ -66,13 +66,14 @@ while rodadas <= 12:
             imprime_cartela(cartela_de_pontos)
 
         elif escolha == 0: #faz jogada
+            dados_totais = rolados + estoque
             print("Digite a combinação desejada:")
             categoria = input()
             if categoria in cartela_de_pontos['regra_avancada']:
                 if cartela_de_pontos['regra_avancada'][categoria] != -1:
                     print("Essa combinação já foi utilizada.")
                 else:
-                    faz_jogada(rolados, categoria, cartela_de_pontos)
+                    faz_jogada(dados_totais, categoria, cartela_de_pontos)
                     jogo = False
 
             elif categoria in ['1', '2', '3', '4', '5', '6']:
@@ -81,7 +82,7 @@ while rodadas <= 12:
                     if cartela_de_pontos['regra_simples'][categoria_int] != -1:
                         print("Essa combinação já foi utilizada.")
                     else:
-                        faz_jogada(rolados, categoria_int, cartela_de_pontos)
+                        faz_jogada(dados_totais, categoria_int, cartela_de_pontos)
                         jogo = False
 
             else:
