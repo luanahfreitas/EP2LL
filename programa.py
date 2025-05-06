@@ -104,8 +104,7 @@ while rodadas < 12:
                     categoria_int = int(categoria)
                     if categoria_int in cartela_de_pontos['regra_simples']:
                         if cartela_de_pontos['regra_simples'][categoria_int] == -1:
-                            
-                            faz_jogada(dados_totais, categoria_int, cartela_de_pontos)
+                            faz_jogada(dados_totais, categoria, cartela_de_pontos)
                             jogada_feita = True
                             jogo = False
                         else:
