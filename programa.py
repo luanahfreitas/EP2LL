@@ -42,7 +42,7 @@ while rodadas < 12:
             while dado_guardar < 0 or dado_guardar >= len(rolados):
                 print("Opção inválida. Tente novamente.")
                 dado_guardar = int(input())
-            if 0 <= dado_guardar <= len(rolados):
+            if 0 <= dado_guardar < len(rolados):
                 guardar_dado(rolados,estoque,dado_guardar)
 
 
@@ -52,7 +52,7 @@ while rodadas < 12:
             while dado_remover < 0 or dado_remover >= len(estoque):
                 print("Opção inválida. Tente novamente.")
                 dado_remover = int(input())
-            if 0 <= dado_remover <= len(estoque):
+            if 0 <= dado_remover < len(estoque):
                 remover_dado(rolados,estoque,dado_remover)
 
 
