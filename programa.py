@@ -1,3 +1,4 @@
+import funcoes
 from funcoes import *
 
 
@@ -99,15 +100,18 @@ while rodadas < 12:
                     else:
                         print("Essa combinação já foi utilizada.")
 
-                elif categoria in ['1', '2', '3', '4', '5', '6']:
+                elif categoria.isdigit():
                     categoria_int = int(categoria)
-                    
-                    if cartela_de_pontos['regra_simples'][categoria_int] == -1:
-                        faz_jogada(dados_totais, categoria_int, cartela_de_pontos)
-                        jogada_feita = True
-                        jogo = False
+                    if categoria_int in cartela_de_pontos['regra_simples']:
+                        if cartela_de_pontos['regra_simples'][categoria_int] == -1:
+                            
+                            faz_jogada(dados_totais, categoria_int, cartela_de_pontos)
+                            jogada_feita = True
+                            jogo = False
+                        else:
+                            print("Essa combinação já foi utilizada.")
                     else:
-                        print("Essa combinação já foi utilizada.")
+                        print("Combinação inválida. Tente novamente.")
                 else:
                     print("Combinação inválida. Tente novamente.")
 

@@ -211,9 +211,10 @@ def faz_jogada(faces, categoria, cartela_de_pontos):
             pontos = calcula_pontos_regra_simples(faces)
             cartela_de_pontos["regra_simples"][num] = pontos[num]
     else:  
-        if cartela_de_pontos["regra_avancada"][categoria] == -1:
-            pontos = calcula_pontos_regra_avancada(faces)
-            cartela_de_pontos["regra_avancada"][categoria] = pontos[categoria]
+        if categoria in cartela_de_pontos["regra_avancada"].keys():
+            if cartela_de_pontos["regra_avancada"][categoria] == -1:
+                pontos = calcula_pontos_regra_avancada(faces)
+                cartela_de_pontos["regra_avancada"][categoria] = pontos[categoria]
     
     return cartela_de_pontos
 
