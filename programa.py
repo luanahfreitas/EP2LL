@@ -48,7 +48,7 @@ while rodadas < 12:
             dado_guardar = input()
             if dado_guardar.isdigit():
                 dado_guardar_int = int(dado_guardar)
-                if dado_guardar_int >= 0 and dado_guardar_int < len(rolados):
+                if 0 <= dado_guardar_int <= 4:
                     estoque.append(rolados.pop(dado_guardar_int))
 
                 else:
@@ -62,7 +62,7 @@ while rodadas < 12:
             dado_remover = input()
             if dado_remover.isdigit():
                 dado_remover_int = int(dado_remover)
-                if dado_remover_int >= 0 and dado_remover_int < len(rolados):
+                if 0 <= dado_remover_int <= 4:
                     rolados.append(estoque.pop(dado_remover_int))
                 else:
                         print("Opção inválida. Tente novamente.")
@@ -139,9 +139,9 @@ if total_simples >= 63:
 else:
     bonus = 0
 
-total = total_simples + total_avancada + bonus
+pontuacao = total_simples + total_avancada + bonus
 
-print(f"Pontuação total: {total}")
+print(f"Pontuação total: {pontuacao}")
     
 
     
