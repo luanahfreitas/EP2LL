@@ -1,4 +1,3 @@
-import funcoes
 from funcoes import *
 
 
@@ -34,26 +33,40 @@ while rodadas < 12:
         print(f"Dados guardados: {estoque}")
         print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
 
-        escolha = int(input())
+        escolha = input()
+
+        if escolha.isdigit():
+            escolha = int(escolha)
+        else:
+            print("Opção inválida. Tente novamente.")
+            escolha = -1
+
 
         if escolha == 1:
             print("Digite o índice do dado a ser guardado (0 a 4):")
-            dado_guardar = int(input())
-            while dado_guardar < 0 or dado_guardar >= len(rolados):
+            dado_guardar = input()
+            if dado_guardar.isdigit():
+                dado_guardar_int = int(dado_guardar)
+                if dado_guardar_int >= 0 and dado_guardar_int < len(rolados):
+                    estoque.append(rolados.pop(dado_guardar_int))
+
+                else:
+                    print("Opção inválida. Tente novamente.")
+            else:
                 print("Opção inválida. Tente novamente.")
-                dado_guardar = int(input())
-            if 0 <= dado_guardar < len(rolados):
-                guardar_dado(rolados,estoque,dado_guardar)
 
 
         elif escolha == 2:
             print("Digite o índice do dado a ser removido (0 a 4):")
-            dado_remover = int(input())
-            while dado_remover < 0 or dado_remover >= len(estoque):
-                print("Opção inválida. Tente novamente.")
-                dado_remover = int(input())
-            if 0 <= dado_remover < len(estoque):
-                remover_dado(rolados,estoque,dado_remover)
+            dado_remover = input()
+            if dado_remover.isdigit():
+                dado_remover_int = int(dado_remover)
+                if 0 >= dado_remover_int and dado_remover_int < len(estoque):
+                    rolados.append(estoque.pop(dado_remover_int))
+                else:
+                        print("Opção inválida. Tente novamente.")
+            else:
+                print("Opção inválida. Tente novamente.")  
 
 
         elif escolha == 3:
@@ -71,28 +84,32 @@ while rodadas < 12:
 
         elif escolha == 0: #faz jogada
             dados_totais = rolados + estoque
-            print("Digite a combinação desejada:")
-            categoria = input()
-            if categoria in cartela_de_pontos['regra_avancada']:
-                while cartela_de_pontos['regra_avancada'][categoria] != -1:
-                    print("Essa combinação já foi utilizada.")
-                    categoria = input()
-                if cartela_de_pontos['regra_avancada'][categoria] == -1:
-                    faz_jogada(dados_totais, categoria, cartela_de_pontos)
-                    jogo = False
+            jogada_feita = False
 
-            elif categoria in ['1', '2', '3', '4', '5', '6']:
-                categoria_int = int(categoria)
-                if categoria_int in cartela_de_pontos['regra_simples']:
-                    while cartela_de_pontos['regra_simples'][categoria_int] != -1:
+            while jogada_feita == False:
+                print("Digite a combinação desejada:")
+                categoria = input()
+
+                if categoria == 'sem_combinacao' or categoria == 'quadra' or categoria == 'full_house' or categoria == 'sequencia_baixa' or categoria == 'sequencia_alta' or categoria == 'cinco_iguais':
+                    if cartela_de_pontos['regra_avancada'][categoria] == -1:
+                        faz_jogada(dados_totais, categoria, cartela_de_pontos)
+                        jogada_feita = True
+                        jogo = False
+                        
+                    else:
                         print("Essa combinação já foi utilizada.")
+
+                elif categoria in ['1', '2', '3', '4', '5', '6']:
+                    categoria_int = int(categoria)
+                    
                     if cartela_de_pontos['regra_simples'][categoria_int] == -1:
                         faz_jogada(dados_totais, categoria_int, cartela_de_pontos)
+                        jogada_feita = True
                         jogo = False
-
-
-            else:
-                print("Combinação inválida. Tente novamente.")
+                    else:
+                        print("Essa combinação já foi utilizada.")
+                else:
+                    print("Combinação inválida. Tente novamente.")
 
         else:
             print("Opção inválida. Tente novamente.")
