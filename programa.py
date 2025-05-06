@@ -20,11 +20,10 @@ cartela_de_pontos = {
         'cinco_iguais': -1
     }
 }
-
+imprime_cartela(cartela_de_pontos) 
 rodadas = 0
 #RODADA
 while rodadas < 12:
-    imprime_cartela(cartela_de_pontos) 
     rolados = rolar_dados(5)
     estoque = []
     rolagens = 0
