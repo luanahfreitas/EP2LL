@@ -124,12 +124,14 @@ imprime_cartela(cartela_de_pontos)
 
 #TOTAL
 total_simples = 0
-for valor in cartela_de_pontos['regra_simples'].values():
+for chave in cartela_de_pontos['regra_simples']:
+    valor = cartela_de_pontos['regra_simples'][chave]
     if valor != -1:
         total_simples += valor
 
 total_avancada = 0
-for valor in cartela_de_pontos['regra_avancada'].values():
+for chave in cartela_de_pontos['regra_avancada']:
+    valor = cartela_de_pontos['regra_avancada'][chave]
     if valor != -1:
         total_avancada += valor
 
