@@ -36,10 +36,13 @@ while rodadas < 12:
 
         escolha = input()
     
+        while escolha.isdigit() == False:
+            print("Opção inválida. Tente novamente.")
+            escolha = input()
+
         if escolha.isdigit():
             escolha = int(escolha)
-        else:
-            while escolha.isdigit() == False or (escolha > 4 and 0 > escolha):
+            while escolha > 4 and 0 > escolha:
                 print("Opção inválida. Tente novamente.")
                 escolha = input()
 
