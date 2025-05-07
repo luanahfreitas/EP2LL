@@ -32,19 +32,21 @@ while rodadas < 12:
     while jogo == True:
         print(f"Dados rolados: {rolados}")
         print(f"Dados guardados: {estoque}")
-        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-
-        escolha = input()
+        
     
-        while escolha.isdigit() == False:
-            print("Opção inválida. Tente novamente.")
+        escolha_valida = False
+        while not escolha_valida:
+            print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
             escolha = input()
 
-        if escolha.isdigit():
-            escolha = int(escolha)
-            while escolha > 4 and 0 > escolha:
+            if escolha.isdigit():
+                escolha = int(escolha)
+                if 0 <= escolha <= 4:
+                    escolha_valida = True
+                else:
+                    print("Opção inválida. Tente novamente.")
+            else:
                 print("Opção inválida. Tente novamente.")
-                escolha = input()
 
 
         if escolha == 1:
