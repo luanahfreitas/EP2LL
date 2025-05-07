@@ -33,10 +33,9 @@ while rodadas < 12:
         print(f"Dados rolados: {rolados}")
         print(f"Dados guardados: {estoque}")
         
-    
+        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
         escolha_valida = False
         while not escolha_valida:
-            print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
             escolha = input()
 
             if escolha.isdigit():
